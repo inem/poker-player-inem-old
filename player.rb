@@ -100,7 +100,7 @@ class Game
   end
 
   def active_players
-    players.map do |player|
+    players.select do |player|
       player['status'] == 'active'
     end
   end
