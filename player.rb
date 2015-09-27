@@ -1,5 +1,5 @@
 class Player
-  VERSION = 'Lazy bot'
+  VERSION = 'Lazy bott'
 
   def bet_request(game_state)
     brain = PokerBrain.new(game_state)
@@ -12,7 +12,7 @@ class Player
 
   end
 end
-  
+
 class InemOldStrategy
   def self.execute(game_state)
     players = game_state["players"]
@@ -21,12 +21,17 @@ class InemOldStrategy
     cards = inem["hole_cards"]
     first,last = *cards.map{|c| c["rank"]}
 
+    # pair
     if first == last
       return 100000
+    # 2 pictures
     elsif first.to_i == 0 && second.to_i == 0
-      return 100000
+      return 600
+    # 1 picture
+    else first.to_i == 0 || second.to_i == 0
+      return 400
     else
-      return 100000
+      return 0
     end
 
   end
