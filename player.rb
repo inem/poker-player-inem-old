@@ -21,11 +21,10 @@ end
 
 class InemOldStrategy
   def self.execute(game)
-    first, last = *game.our_cards
+    cards = *game.our_cards
 
     # pair
-    if first == last
-      puts "[pair]"
+    if pair?(cards)
       return 100000
     elsif first.to_i == 0
       # 2 pictures
@@ -34,7 +33,7 @@ class InemOldStrategy
         return 10000
       else
       # 1 picture
-        if last.to_i > 9
+        if last.to_i > 8
           puts "[3]"
           return 10000
         end
@@ -42,6 +41,16 @@ class InemOldStrategy
     end
 
     return 0
+  end
+  
+  def both_pictures?(cards)
+    first, last = *cards
+    first.to_i == 0 && last.to_i == 0
+  end
+
+  def pair?(cards)
+    first, last = *cards
+    first == last
   end
 end
 
@@ -54,6 +63,30 @@ end
 class FoldStrategy
   def self.execute(game)
     0
+  end
+end
+
+class SmartFoldStrategy
+  def self.execute(game)
+    cards = *game.our_cards
+
+    if both_pictures?(cards)
+      100000
+    elsif pair?(cards) && cards.first.to_i > 8
+      100000
+    else
+      0
+    end
+  end
+
+  def both_pictures?(cards)
+    first, last = *cards
+    first.to_i == 0 && last.to_i == 0
+  end
+
+  def pair?(cards)
+    first, last = *cards
+    first == last
   end
 end
 
