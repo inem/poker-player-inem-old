@@ -26,17 +26,15 @@ class InemOldStrategy
     # pair
     if pair?(cards)
       return 100000
-    elsif first.to_i == 0
-      # 2 pictures
-      if last.to_i == 0
-        puts "[2]"
+    elsif first.to_i == 0 && last.to_i == 0
+      # both are pictures
+      return 100000
+    elsif first.to_i == 0 || last.to_i == 0
+      # at least one is picture
+      if first.to_i > 7 || last.to_i > 7
         return 10000
       else
-      # 1 picture
-        if last.to_i > 7
-          puts "[3]"
-          return 10000
-        end
+        return 0
       end
     end
 
