@@ -28,7 +28,7 @@ class InemOldStrategy
       puts "[pair]"
       return 100000
     # 2 pictures
-    elsif first.to_i == 0 && second.to_i == 0
+    elsif first.to_i == 0 && last.to_i == 0
       puts "[2]"
       return 10000
     end
