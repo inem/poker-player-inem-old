@@ -27,10 +27,18 @@ class InemOldStrategy
     if first == last
       puts "[pair]"
       return 100000
-    # 2 pictures
-    elsif first.to_i == 0 && last.to_i == 0
-      puts "[2]"
-      return 10000
+    elsif first.to_i == 0
+      # 2 pictures
+      if last.to_i == 0
+        puts "[2]"
+        return 10000
+      else
+      # 1 picture
+        if last.to_i > 9
+          puts "[3]"
+          return 10000
+        end
+      end
     end
 
     return 0
