@@ -23,6 +23,12 @@ class InemOldStrategy
   def self.execute(game)
     first, last = *game.our_cards
 
+    puts "OUR CARDS:"
+    puts "______"
+    puts first
+    puts last
+    puts "______"
+
     # pair
     if first == last
       puts "[pair]"
@@ -44,7 +50,7 @@ class AgressivePlayStrategy
 end
 
 class FoldStrategy
-  def self.execute(game_state)
+  def self.execute(game)
     0
   end
 end
