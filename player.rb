@@ -108,7 +108,7 @@ class Game
   end
 
   def our_player
-    players.select { |p| p["name"] == "inem" }
+    players.select { |p| p["name"] == "inem" }.first
   end
 
   def our_cards
