@@ -78,7 +78,17 @@ class Game
     @game_state = game_state
   end
 
+  def players
+    game_state['players']
+  end
+
+  def active_players
+    players.map do |player|
+      player['status'] == 'active'
+    end
+  end
+
   def active_players_count
-    6
+    active_players.count
   end
 end
