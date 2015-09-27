@@ -26,10 +26,10 @@ class InemOldStrategy
       return 100000
     # 2 pictures
     elsif first.to_i == 0 && second.to_i == 0
-      return 600
+      return 10000
     # 1 picture
-    else first.to_i == 0 || second.to_i == 0
-      return 400
+    elsif first.to_i == 0 || second.to_i == 0
+      return 10000
     else
       return 0
     end
