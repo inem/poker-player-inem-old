@@ -14,12 +14,8 @@ class Player
 end
 
 class InemOldStrategy
-  def self.execute(game_state)
-    players = game_state["players"]
-    inem = players.select{|p| p["name"] == "inem"}
-
-    cards = inem["hole_cards"]
-    first,last = *cards.map{|c| c["rank"]}
+  def self.execute(game)
+    first, last = *game.our_cards
 
     # pair
     if first == last
@@ -71,7 +67,7 @@ class PokerBrain
   def make_decision(game_state)
     game = Game.new(game_state)
     strategy = STRATEGIES[game.active_players_count]
-    strategy.execute(game_state)
+    strategy.execute(game)
   end
 end
 
@@ -94,5 +90,14 @@ class Game
 
   def active_players_count
     active_players.count
+  end
+
+  def our_player
+    players.select { |p| p["name"] == "inem" }
+  end
+
+  def our_cards
+    cards = our_player["hole_cards"]
+    cards.map { |c| c["rank"] }
   end
 end
