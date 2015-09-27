@@ -30,10 +30,9 @@ class InemOldStrategy
     # 1 picture
     elsif first.to_i == 0 || second.to_i == 0
       return 10000
-    else
-      return 0
     end
-
+    
+    return 0
   end
 end
 
