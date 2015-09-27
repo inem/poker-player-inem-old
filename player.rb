@@ -4,7 +4,13 @@ class Player
   def bet_request(game_state)
     brain = PokerBrain.new(game_state)
     brain.make_decision(game_state)
-  rescue
+  rescue => e
+    puts "Exception happened"
+    puts "-----------------"
+    puts e
+    puts e.backtrace
+    puts "-----------------"
+
     10000
   end
 
