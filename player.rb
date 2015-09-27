@@ -84,7 +84,7 @@ end
 class Game
   attr_reader :game_state
 
-  def initialzie(game_state)
+  def initialize(game_state)
     @game_state = game_state
   end
 
