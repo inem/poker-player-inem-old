@@ -75,6 +75,8 @@ class PokerBrain
     puts "#{game.active_players_count}"
 
     strategy = STRATEGIES[game.active_players_count]
+    
+    puts "Selected Strategy: #{strategy}"
     strategy.execute(game)
   end
 end
