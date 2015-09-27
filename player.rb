@@ -4,9 +4,8 @@ class Player
   def bet_request(game_state)
     brain = PokerBrain.new(game_state)
     brain.make_decision(game_state)
-  rescue => e
-    puts e
-    InemOldStrategy.execute(game_state)
+  rescue
+    10000
   end
 
   def showdown(game_state)
