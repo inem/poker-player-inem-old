@@ -19,15 +19,14 @@ class InemOldStrategy
 
     # pair
     if first == last
+      puts "[pair]"
       return 100000
     # 2 pictures
     elsif first.to_i == 0 && second.to_i == 0
-      return 10000
-    # 1 picture
-    elsif first.to_i == 0 || second.to_i == 0
+      puts "[2]"
       return 10000
     end
-    
+
     return 0
   end
 end
@@ -66,7 +65,7 @@ class PokerBrain
 
   def make_decision(game_state)
     game = Game.new(game_state)
-    
+
     puts "#{game.active_players_count}"
 
     strategy = STRATEGIES[game.active_players_count]
