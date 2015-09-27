@@ -52,9 +52,9 @@ class PokerBrain
   STRATEGIES = {
     2 => InemOldStrategy,
     3 => InemOldStrategy,
-    4 => InemOldStrategy,
-    5 => InemOldStrategy,
-    6 => InemOldStrategy,
+    4 => FoldStrategy,
+    5 => FoldStrategy,
+    6 => FoldStrategy,
     # 2 => AgressivePlayStrategy,
     # 3 => AgressivePlayStrategy,
     # 4 => FoldStrategy,
