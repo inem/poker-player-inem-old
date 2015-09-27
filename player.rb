@@ -33,7 +33,7 @@ class InemOldStrategy
         return 10000
       else
       # 1 picture
-        if last.to_i > 8
+        if last.to_i > 7
           puts "[3]"
           return 10000
         end
@@ -72,7 +72,7 @@ class SmartFoldStrategy
 
     if both_pictures?(cards)
       100000
-    elsif pair?(cards) && cards.first.to_i > 8
+    elsif pair?(cards) && cards.first.to_i > 9
       100000
     else
       0
@@ -96,9 +96,9 @@ class PokerBrain
     1 => InemOldStrategy,
     2 => InemOldStrategy,
     3 => InemOldStrategy,
-    4 => FoldStrategy,
-    5 => FoldStrategy,
-    6 => FoldStrategy,
+    4 => SmartFoldStrategy,
+    5 => SmartFoldStrategy,
+    6 => SmartFoldStrategy,
     # 2 => AgressivePlayStrategy,
     # 3 => AgressivePlayStrategy,
     # 4 => FoldStrategy,
