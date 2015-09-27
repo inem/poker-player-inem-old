@@ -78,6 +78,7 @@ class PokerBrain
   def make_decision(game_state)
     game = Game.new(game_state)
 
+    puts "#{game.players}"
     puts "#{game.active_players_count}"
 
     strategy = STRATEGIES[game.active_players_count]
