@@ -23,12 +23,6 @@ class InemOldStrategy
   def self.execute(game)
     first, last = *game.our_cards
 
-    puts "OUR CARDS:"
-    puts "______"
-    puts first
-    puts last
-    puts "______"
-
     # pair
     if first == last
       puts "[pair]"
@@ -84,6 +78,10 @@ class PokerBrain
     strategy = STRATEGIES[game.active_players_count]
     
     puts "Selected Strategy: #{strategy}"
+    puts "OUR PLAYER:"
+    puts game.our_player
+    puts "______"
+
     strategy.execute(game)
   end
 end
