@@ -12,6 +12,37 @@ class Player
 
   end
 end
+  
+class InemOldStrategy
+  def self.execute(game_state)
+    players = game_state["players"]
+    inem = players.select{|p| p["name"] == "inem"}
+
+    cards = inem["hole_cards"]
+    first,last = *cards.map{|c| c["rank"]}
+
+    if first == last
+      return 100000
+    elsif first.to_i == 0 && second.to_i == 0
+      return 100000
+    else
+      return 100000
+    end
+
+  end
+end
+
+class AgressivePlayStrategy
+  def self.execute(game_state)
+    1000000
+  end
+end
+
+class FoldStrategy
+  def self.execute(game_state)
+    0
+  end
+end
 
 class PokerBrain
   STRATEGIES = {
@@ -49,36 +80,5 @@ class Game
 
   def active_players_count
     6
-  end
-end
-
-class InemOldStrategy
-  def self.execute(game_state)
-    players = game_state["players"]
-    inem = players.select{|p| p["name"] == "inem"}
-
-    cards = inem["hole_cards"]
-    first,last = *cards.map{|c| c["rank"]}
-
-    if first == last
-      return 100000
-    elsif first.to_i == 0 && second.to_i == 0
-      return 100000
-    else
-      return 100000
-    end
-
-  end
-end
-
-class AgressivePlayStrategy
-  def self.execute(game_state)
-    1000000
-  end
-end
-
-class FoldStrategy
-  def self.execute(game_state)
-    0
   end
 end
